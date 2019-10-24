@@ -3,7 +3,6 @@
   <display-name>service-fire-detector</display-name>
   <absolute-ordering/>
   <welcome-file-list>
-    <welcome-file>/WEB-INF/view/list-records.jsp</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>

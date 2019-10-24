@@ -1,4 +1,4 @@
-
+/*version 3.0*/
 CREATE DATABASE  IF NOT EXISTS `records_service` ;
 USE `records_service`;
 
@@ -7,18 +7,21 @@ DROP TABLE IF EXISTS `service`;
 DROP TABLE IF EXISTS `detector`;
 
 CREATE TABLE IF NOT EXISTS `detector` (
-    `name` VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
-    `type` VARCHAR(45) NOT NULL
+    `name` VARCHAR(30) NOT NULL ,
+    `type` VARCHAR(45) NOT NULL,
+    
+    PRIMARY KEY (`name`),
+    UNIQUE `NAME_UNIQUE`(`name`)
 )  ENGINE=INNODB  DEFAULT CHARSET=LATIN1;
   
-  
-
 CREATE TABLE `service` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
   `detector_name`  VARCHAR (30) NOT NULL,
   `global_reason` VARCHAR(45) NOT NULL,
   `simple_reason` VARCHAR(45) NOT NULL,
+  
+   PRIMARY KEY (`id`),
   
   KEY `FK_DETECTOR_namex` (`detector_name`),
   CONSTRAINT `FK_DETECTOR` FOREIGN KEY (`detector_name`) 
@@ -32,7 +35,7 @@ CREATE TABLE `service` (
 LOCK TABLES  `detector`  WRITE;
 
 
-INSERT INTO `detector` VALUES ('DFS-3', 'Smoke detector'),
+INSERT  INTO `detector` VALUES ('DFS-3', 'Smoke detector'),
 ('DFS-3.2', 'Smoke detector'),
 ('DFS-3.2NC', 'Smoke detector'),
 ('DFS-3.10', 'Smoke detector'),
@@ -55,9 +58,8 @@ INSERT INTO `detector` VALUES ('DFS-3', 'Smoke detector'),
 ('MCL-2L', 'Modul MCL'),
 ('MCL-3L', 'Modul MCL'),
 ('MCL-6L', 'Modul MCL'),
-('MCL-DOL', 'Modul MCL')
+('MCL-DOL', 'Modul MCL');
 
-;
 UNLOCK TABLES;
 
 
@@ -950,6 +952,3 @@ INSERT INTO `service`  VALUES (1, '2009-01-15', 'DFS-3.10', 'Incorrect use', 'du
 UNLOCK TABLES;
 
  
-
-
-

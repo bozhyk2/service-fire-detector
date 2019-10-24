@@ -1,4 +1,6 @@
+
 /*version 3.0*/
+
 CREATE DATABASE  IF NOT EXISTS `records_service` ;
 USE `records_service`;
 
@@ -7,12 +9,14 @@ DROP TABLE IF EXISTS `service`;
 DROP TABLE IF EXISTS `detector`;
 
 CREATE TABLE IF NOT EXISTS `detector` (
+
     `name` VARCHAR(30) NOT NULL ,
     `type` VARCHAR(45) NOT NULL,
     
-    PRIMARY KEY (`name`),
-    UNIQUE `NAME_UNIQUE`(`name`)
+     PRIMARY KEY (`name`),
+     UNIQUE `NAME_UNIQUE`(`name`)
 )  ENGINE=INNODB  DEFAULT CHARSET=LATIN1;
+
   
 CREATE TABLE `service` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -22,10 +26,9 @@ CREATE TABLE `service` (
   `simple_reason` VARCHAR(45) NOT NULL,
   
    PRIMARY KEY (`id`),
-  
-  KEY `FK_DETECTOR_namex` (`detector_name`),
-  CONSTRAINT `FK_DETECTOR` FOREIGN KEY (`detector_name`) 
-  REFERENCES `detector` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+   KEY `FK_DETECTOR_namex` (`detector_name`),
+   CONSTRAINT `FK_DETECTOR` FOREIGN KEY (`detector_name`) 
+   REFERENCES `detector` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
   
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -34,8 +37,8 @@ CREATE TABLE `service` (
 
 LOCK TABLES  `detector`  WRITE;
 
-
 INSERT  INTO `detector` VALUES ('DFS-3', 'Smoke detector'),
+
 ('DFS-3.2', 'Smoke detector'),
 ('DFS-3.2NC', 'Smoke detector'),
 ('DFS-3.10', 'Smoke detector'),
@@ -949,6 +952,10 @@ INSERT INTO `service`  VALUES (1, '2009-01-15', 'DFS-3.10', 'Incorrect use', 'du
 (883, '2011-04-15', 'Candy-DO1', 'normal', 'no any problem'),
 (884, '2011-04-15', 'Candy-02L', 'Restore old devices', 'capacitors');
 
+
 UNLOCK TABLES;
+
+ 
+
 
  

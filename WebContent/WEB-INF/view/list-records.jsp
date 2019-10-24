@@ -1,7 +1,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head><title>List Records</title></head>
+<head><title>List Records</title>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+</head>
 <body>
 	<div id="wrapper">
 		<div id="header">
@@ -12,6 +15,7 @@
 		<div id="context">
 			<table>
 			<tr>
+			    <th>ID</th>
 				<th>Date</th>
 				<th>Detector Name</th>
 				<th>Global Type of Reason</th> 
@@ -19,7 +23,8 @@
 			</tr>
 			<c:forEach var="tmpRecord" items ="${records}">
 			  <tr>
-				<td>${tmpRecord.date}</td>
+			    <td>${tmpRecord.id}</td>
+			    <td>${tmpRecord.date}</td>
 				<td>${tmpRecord.detectorName.name}</td>
 				<td>${tmpRecord.globalReason}</td> 
 				<td>${tmpRecord.simpleReason}</td>

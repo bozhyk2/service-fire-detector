@@ -1,6 +1,9 @@
-package iryna.bozhyk.service.entity;
+package iryna.bozhyk.myservice.entity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +26,7 @@ public class MyService {
 	private int id; 
 	
 	@Column(name="date")
-	private Date date;
+	private LocalDate date;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade={CascadeType.DETACH,
 			             CascadeType.MERGE,
@@ -42,7 +45,7 @@ public class MyService {
 		
 	}
 
-	public MyService(Date date, Detector detectorName, String globalReason, String simpleReason) {
+	public MyService(LocalDate date, Detector detectorName, String globalReason, String simpleReason) {
 		this.date = date;
 		this.detectorName = detectorName;
 		this.globalReason = globalReason;
@@ -57,11 +60,15 @@ public class MyService {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
+	public String getStringDate() {
+		DateTimeFormatter df=DateTimeFormatter.ofPattern("MMM yyyy", new Locale ("en"));
+		return df.format(date);
+	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

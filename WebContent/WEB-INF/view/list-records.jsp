@@ -24,7 +24,7 @@
 			<c:forEach var="tmpRecord" items ="${records}">
 			  <tr>
 			    <td>${tmpRecord.id}</td>
-			    <td>${tmpRecord.date}</td>
+			    <td>${tmpRecord.stringDate}</td>
 				<td>${tmpRecord.detectorName.name}</td>
 				<td>${tmpRecord.globalReason}</td> 
 				<td>${tmpRecord.simpleReason}</td>

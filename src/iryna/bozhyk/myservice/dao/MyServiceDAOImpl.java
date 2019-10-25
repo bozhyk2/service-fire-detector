@@ -1,4 +1,4 @@
-package iryna.bozhyk.service.dao;
+package iryna.bozhyk.myservice.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import iryna.bozhyk.service.entity.MyService;
+import iryna.bozhyk.myservice.entity.MyService;
 
 @Repository("myServiceDAOImpl")
 public class MyServiceDAOImpl implements MyServiceDAO {

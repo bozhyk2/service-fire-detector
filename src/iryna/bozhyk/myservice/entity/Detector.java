@@ -1,4 +1,4 @@
-package iryna.bozhyk.service.entity;
+package iryna.bozhyk.myservice.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

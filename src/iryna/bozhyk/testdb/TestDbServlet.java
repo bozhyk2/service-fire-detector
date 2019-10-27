@@ -29,7 +29,7 @@ public class TestDbServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//  connection url
-		String jdbcUrl = "jdbc:mysql://localhost:3306/records_service?useSSL=false&serverTimezone=UTC";
+		String jdbcUrl = "jdbc:mysql://localhost:3306/records_service?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 		// connection user name
 		String user = "qualitymanager";
 		// connection password 

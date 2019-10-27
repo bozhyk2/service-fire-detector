@@ -18,7 +18,6 @@ public class MyServiceDAOImpl implements MyServiceDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<MyService> getMyServices() {
 		Session session = sessionFactory.getCurrentSession();
 		List <MyService> records = session.createQuery("from MyService", MyService.class).getResultList();

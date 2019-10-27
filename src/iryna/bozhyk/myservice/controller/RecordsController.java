@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import iryna.bozhyk.myservice.dao.MyServiceDAO;
 import iryna.bozhyk.myservice.entity.MyService;
+import iryna.bozhyk.myservice.service.MyRecordsService;
 
 @Controller
 @RequestMapping("/records")
 public class RecordsController {
 	
 	@Autowired
-	@Qualifier("myServiceDAOImpl")
-	private MyServiceDAO myServiceDAO;
+	private MyRecordsService myRecordsService;
 	
 	@GetMapping("/list")
 	public String listRecords(Model theModel){
-		List <MyService> theServices = myServiceDAO.getMyServices();
-	    theModel.addAttribute("records", theServices);
+		List <MyService> theRecords = myRecordsService.getMyServices();
+	    theModel.addAttribute("records", theRecords);
 		return "list-records";
 	}
 
